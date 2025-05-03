@@ -35,6 +35,7 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+      working-directory: assignment
 
     - name: Store JAR artifact
       uses: actions/upload-artifact@v4
