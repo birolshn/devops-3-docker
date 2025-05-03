@@ -87,7 +87,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: app-jar
-        path: .assignment/build/libs/
+        path: assignment/build/libs/
 
     # Set up Docker Buildx
     - name: Set up Docker Buildx
