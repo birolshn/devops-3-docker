@@ -63,6 +63,9 @@ jobs:
         key: ${{ secrets.AZURE_VM_SSH_PRIVATE_KEY }}
         known_hosts: ${{ secrets.AZURE_VM_KNOWN_HOSTS }}
         if_key_exists: replace
+
+    - name: Ensure remote directory exists
+      run: ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} "mkdir -p ~/app"
         
     - name: Deploy JAR to Azure VM
       run: |
@@ -84,7 +87,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: app-jar
-        path: ./build/libs/
+        path: .assignment/build/libs/
 
     # Set up Docker Buildx
     - name: Set up Docker Buildx
