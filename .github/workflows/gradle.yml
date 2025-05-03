@@ -104,7 +104,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .assignment
+        context: .assignment/
+        file: .assignment/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest,${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ github.sha }}
 
